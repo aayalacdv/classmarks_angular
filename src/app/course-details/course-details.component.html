@@ -1,7 +1,7 @@
-<mat-list>
-  <mat-list-item>Current Mark : {{ course.currentMark }}</mat-list-item>
+<mat-list class="">
+    <mat-list-item class="d-flex">Current Mark : {{ course.currentMark }} </mat-list-item>
   <mat-divider></mat-divider>
-</mat-list>
+  </mat-list>
 
 <table mat-table [dataSource]="course.exams" >
   <ng-container matColumnDef="name">
@@ -24,3 +24,8 @@
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 
 </table>
+<div class="d-grid gap-2 " >
+  <button class="btn btn-outline-dark" type="button" (click)="setDisplayForm()">Add Exam</button>
+</div>
+
+<app-exam-form *ngIf="displayForm"></app-exam-form>

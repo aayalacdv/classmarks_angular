@@ -11,11 +11,13 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import { ExamFormComponent } from './exam-form/exam-form.component';
 @NgModule({
   declarations: [
     AppComponent,
     CourseListViewComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    ExamFormComponent
   ],
   imports: [
     BrowserModule,

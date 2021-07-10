@@ -9,11 +9,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CourseDetailsComponent implements OnInit {
   @Input() course! : Course;
   columnsToDisplay = ['name', 'percentage', 'mark'];
+  displayForm : boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+
+  setDisplayForm(){
+    this.displayForm = true; 
   }
 
 }

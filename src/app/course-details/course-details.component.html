@@ -1,0 +1,26 @@
+<mat-list>
+  <mat-list-item>Current Mark : {{ course.currentMark }}</mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<table mat-table [dataSource]="course.exams" >
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let exam"> {{exam.name}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="mark">
+      <th mat-header-cell *matHeaderCellDef> Mark</th>
+      <td mat-cell *matCellDef="let exam"> {{exam.mark}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="percentage">
+      <th mat-header-cell *matHeaderCellDef> Percentage </th>
+      <td mat-cell *matCellDef="let exam"> {{exam.perentage}} </td>
+      </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+</table>

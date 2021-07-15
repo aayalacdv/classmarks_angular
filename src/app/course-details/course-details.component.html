@@ -28,4 +28,5 @@
   <button class="btn btn-outline-dark" type="button" (click)="setDisplayForm()">Add Exam</button>
 </div>
 
-<app-exam-form *ngIf="displayForm"></app-exam-form>
+<app-exam-form *ngIf="displayForm"
+[course] = "course"></app-exam-form>

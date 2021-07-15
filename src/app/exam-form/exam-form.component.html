@@ -2,15 +2,19 @@
   <div class="mb-3">
     <label for="exam-name" class="form-label">Name</label>
     <input type="text" class="form-control" formControlName= "name" >
+   <div class="text-danger" *ngIf="controls.name.invalid && controls.name.touched"> Name is required</div>
   </div>
   <div class="mb-3">
     <label for="exam_percentage" class="form-label">Percentage</label>
     <input type="number" class="form-control"  formControlName= "percentage">
-
+    <div class="text-danger" *ngIf="controls.percentage.pristine && controls.percentage.touchd"> Percentage is required</div>
+    <div class="text-danger" *ngIf="!percentageValidation() && controls.percentage.touched"> Percentage invalid, has to be lower than {{ course.pecentageLeft }} and grater than 0 </div>
   </div>
   <div class="mb-3">
     <label for="exam_mark" class="form-label">Mark</label>
     <input type="number" class="form-control" formControlName= "mark">
+    <div class="text-danger" *ngIf="controls.mark.pristine && controls.mark.touched"> Mark is required</div>
+    <div class="text-danger" *ngIf="!markValidation() "> Mark invalid </div>
   </div>
   <button type="submit" class="btn btn-outline-dark">Submit</button>
 </form>

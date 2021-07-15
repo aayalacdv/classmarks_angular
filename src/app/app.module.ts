@@ -12,6 +12,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { ExamFormComponent } from './exam-form/exam-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Validators } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,9 @@ import { ExamFormComponent } from './exam-form/exam-form.component';
     MatButtonModule,
     MatTableModule,
     MatDividerModule,
-    MatListModule, 
+    MatListModule,
+    ReactiveFormsModule,
+    Validators,
   ],
   providers: [],
   bootstrap: [AppComponent]

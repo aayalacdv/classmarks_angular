@@ -13,8 +13,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { ExamFormComponent } from './exam-form/exam-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { MatError } from '@angular/material/form-field';
+import { MatFormField } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDividerModule,
     MatListModule,
     ReactiveFormsModule,
-
+    MatError,
+    MatFormField,
   ],
   providers: [],
   bootstrap: [AppComponent]

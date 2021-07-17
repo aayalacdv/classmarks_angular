@@ -34,7 +34,6 @@ export class CourseDetailsComponent implements OnInit{
     this.course = course;
   }
 
-
   setDisplayForm(){
     this.displayForm = true;
   }
@@ -48,6 +47,10 @@ export class CourseDetailsComponent implements OnInit{
     let examIndex = this.course.exams.indexOf(exam);
     this.courseService.deleteExam(this.index, examIndex);
     this.refreshTable();
+  }
+
+  deleteCourse(){
+    this.courseService.deleteCourse(this.course); 
   }
 
 }

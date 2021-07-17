@@ -17,6 +17,11 @@ export class CourseService {
   }
 
 
+  addCourse( course : Course){
+    COURSES.push(course);
+  }
+
+
   addExam(index : number, exam : Exam){
     COURSES[index].addExam(exam);
   }
@@ -32,6 +37,12 @@ export class CourseService {
     observer.next(COURSES);
     observer.complete();
     return { unsubscribe(){}}
+  }
+
+
+  deleteCourse(course: Course){
+      let index = COURSES.indexOf(course);
+      COURSES.splice(index); 
   }
 
 

@@ -16,7 +16,7 @@ pds.addExam(mq);
 api.addExam(mq);
 
 
-export const COURSES : Course[] = [pes, api, pds];
+export let COURSES : Course[] = [pes, api, pds];
 
 
 

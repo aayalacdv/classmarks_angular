@@ -1,7 +1,10 @@
+import { CourseService } from './../course.service';
+import { Exam } from './../interfaces/exam_interface';
 import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Course } from '../models/course';
+
 @Component({
   selector: 'app-exam-form',
   templateUrl: './exam-form.component.html',
@@ -9,10 +12,13 @@ import { Course } from '../models/course';
 })
 export class ExamFormComponent implements OnInit {
   @Input() course! : Course;
+  @Input() index! : number;
+  @Output() upDateTable = new EventEmitter();
+
    examForm !: FormGroup;
 
 
-  constructor( private fb: FormBuilder) { }
+  constructor( private fb: FormBuilder, private courseService : CourseService) { }
 
   percentageValidation() : boolean {
    return this.controls.percentage.value < this.course.pecentageLeft && this.controls.percentage.value > 0;
@@ -39,4 +45,24 @@ export class ExamFormComponent implements OnInit {
   get controls(): any {
     return this.examForm.controls;
   }
+
+  onSubmit(event : any) : void {
+    event.preventDefault();
+    let data : any = this.examForm.value;
+    let exam : Exam = {
+      name : data.name,
+      perentage : data.percentage,
+      mark : data.mark
+    }
+
+    this.courseService.addExam(this.index, exam);
+    this.examForm.reset();
+    this.upDateTable.emit();
+
+}
+
+goBack() : void {
+  this.upDateTable.emit();
+}
+
 }
